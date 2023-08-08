@@ -1,0 +1,167 @@
+[
+  {
+    "id": "1",
+    "title": "Leadership Workshop",
+    "date": "2023-08-15",
+    "time": "10:00",
+    "location": "New York",
+    "description": "Unlock the secrets of effective leadership at our transformative Leadership Workshop.",
+    "category": "Business",
+    "priority": 1,
+    "picture": "https://source.unsplash.com/featured/?business"
+  },
+  {
+    "id": "2",
+    "title": "Acoustic Music Night",
+    "date": "2023-08-20",
+    "time": "19:00",
+    "location": "Los Angeles",
+    "description": "Experience the magic of live music amidst the serene beauty of nature at our Acoustic Music Night.",
+    "category": "Music",
+    "priority": 1,
+    "picture": "https://source.unsplash.com/featured/?music"
+  },
+  {
+    "id": "3",
+    "title": "Art Exhibition",
+    "date": "2023-08-25",
+    "time": "14:00",
+    "location": "Paris",
+    "description": "Discover the world of art at our mesmerizing Art Exhibition.",
+    "category": "Art",
+    "priority": 2,
+    "picture": "https://source.unsplash.com/featured/?paint*.*"
+  },
+  {
+    "id": "4",
+    "title": "Conference on Innovation",
+    "date": "2023-09-01",
+    "time": "09:30",
+    "location": "San Francisco",
+    "description": "Engage in a thought-provoking journey of knowledge and collaboration at our Conference on Innovation.",
+    "category": "Conference",
+    "priority": 3,
+    "picture": "https://source.unsplash.com/featured/?conference"
+  },
+  {
+    "id": "5",
+    "title": "Tech Startup Showcase",
+    "date": "2023-09-05",
+    "time": "11:00",
+    "location": "London",
+    "description": "Witness the future of technology as innovative startups showcase their groundbreaking ideas.",
+    "category": "Workshop",
+    "priority": 2,
+    "picture": "https://source.unsplash.com/featured/?workshop"
+  },
+  {
+    "id": "6",
+    "title": "Beach Party Extravaganza",
+    "date": "2023-09-10",
+    "time": "18:00",
+    "location": "Miami",
+    "description": "Embrace the tropical vibes and escape to paradise at our Beach Party Extravaganza.",
+    "category": "Party",
+    "priority": 1,
+    "picture": "https://source.unsplash.com/featured/?party"
+  },
+  {
+    "id": "7",
+    "title": "Football Tournament",
+    "date": "2023-09-15",
+    "time": "16:30",
+    "location": "Madrid",
+    "description": "Join us for an exciting football tournament and witness some epic sportsmanship.",
+    "category": "Sport",
+    "priority": 3,
+    "picture": "https://source.unsplash.com/featured/?sport"
+  },
+  {
+    "id": "8",
+    "title": "Innovative Business Summit",
+    "date": "2023-09-20",
+    "time": "10:00",
+    "location": "Tokyo",
+    "description": "Explore the future of business at our Innovative Business Summit.",
+    "category": "Business",
+    "priority": 2,
+    "picture": "https://source.unsplash.com/featured/?business"
+  },
+  {
+    "id": "9",
+    "title": "Jazz Night",
+    "date": "2023-09-25",
+    "time": "20:00",
+    "location": "Chicago",
+    "description": "Immerse yourself in the soulful tunes of jazz at our Jazz Night.",
+    "category": "Music",
+    "priority": 1,
+    "picture": "https://source.unsplash.com/featured/?music"
+  },
+  {
+    "id": "10",
+    "title": "Artistic Workshop",
+    "date": "2023-09-30",
+    "time": "13:00",
+    "location": "Florence",
+    "description": "Unleash your creativity at our Artistic Workshop led by renowned artists.",
+    "category": "Art",
+    "priority": 2,
+    "picture": "https://source.unsplash.com/featured/?art"
+  },
+  {
+    "id": "11",
+    "title": "Tech Expo",
+    "date": "2023-10-05",
+    "time": "09:00",
+    "location": "Berlin",
+    "description": "Experience the latest technological innovations at our Tech Expo.",
+    "category": "Conference",
+    "priority": 3,
+    "picture": "https://source.unsplash.com/featured/?conference"
+  },
+  {
+    "id": "12",
+    "title": "Entrepreneurship Workshop",
+    "date": "2023-10-10",
+    "time": "11:30",
+    "location": "Sydney",
+    "description": "Learn from successful entrepreneurs and kickstart your journey at our Entrepreneurship Workshop.",
+    "category": "Workshop",
+    "priority": 1,
+    "picture": "https://source.unsplash.com/featured/?workshop"
+  },
+  {
+    "id": "13",
+    "title": "Masquerade Ball",
+    "date": "2023-10-15",
+    "time": "19:00",
+    "location": "Vienna",
+    "description": "Step into a world of mystery and allure at our Masquerade Ball.",
+    "category": "Party",
+    "priority": 2,
+    "picture": "https://source.unsplash.com/featured/?party"
+  },
+  {
+    "id": "14",
+    "title": "Basketball Tournament",
+    "date": "2023-10-20",
+    "time": "15:00",
+    "location": "New York",
+    "description": "Cheer for your favorite teams as they compete in our thrilling Basketball Tournament.",
+    "category": "Sport",
+    "priority": 3,
+    "picture": "https://source.unsplash.com/featured/?basketball"
+  },
+  {
+    "id": "15",
+    "title": "Painting Workshop",
+    "date": "2023-10-25",
+    "time": "14:00",
+    "location": "Paris",
+    "description": "Unleash your inner artist at our Painting Workshop guided by master painters.",
+    "category": "Art",
+    "priority": 1,
+    "picture": "https://source.unsplash.com/featured/?art"
+  }
+]
