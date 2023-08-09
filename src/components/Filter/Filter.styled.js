@@ -35,7 +35,7 @@ export const WrapIcon = styled.div`
   display: flex;
   justify-content: space-between;
   color: inherit;
-  gap: 4px;
+  gap: 6px;
 
   @media ${device.tablet} {
     align-items: center;

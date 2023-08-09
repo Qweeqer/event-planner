@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { ChevronSmallDown, ChevronSmallUp } from "react-swm-icon-pack";
+import styled from "styled-components";
 
 export const Select = styled.div`
   position: relative;

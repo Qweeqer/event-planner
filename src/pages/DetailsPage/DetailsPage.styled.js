@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { device } from "../../utils/device";
 import { StyledTitle } from "../../components/Title/Title.styled";
 

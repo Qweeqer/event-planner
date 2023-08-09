@@ -1,9 +1,10 @@
 import styled from "styled-components";
+
 import { device } from "../../utils/device";
 
 export const Wrap = styled.div`
   display: flex;
-  gap: 24px;
+  gap: 40px;
   align-items: center;
   justify-content: flex-end;
   margin-bottom: 40px;
