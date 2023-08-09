@@ -1,5 +1,6 @@
-import styled from "styled-components";
 import { Search } from "react-swm-icon-pack";
+import styled from "styled-components";
+
 import { device } from "../../utils/device";
 
 export const InputWrap = styled.div`
