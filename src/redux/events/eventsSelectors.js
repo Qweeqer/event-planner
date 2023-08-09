@@ -1,4 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
+
 import { selectSearchValue } from "../search/searchSelectors";
 import { selectSortProperty } from "../sort/sortSelectors";
 import { selectSortOrder } from "../sort/sortSelectors";
