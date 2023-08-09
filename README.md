@@ -29,7 +29,7 @@ In the project directory, you can run:
 
 ## Live Demo
 
-Check out the [live demo](link_to_your_live_demo) of the Event Planner web app on GitHub Pages.
+Check out the [live demo](https://qweeqer.github.io/event-planner/) of the Event Planner web app on GitHub Pages.
 
 ## Backend
 
