@@ -1,7 +1,10 @@
 import React, { useState, useRef } from "react";
+import { useSelector } from "react-redux";
 import Calendar from "react-calendar";
 import { format, parseISO } from "date-fns";
+
 import useOutsideClick from "../../hooks/useClickOutside";
+
 import {
   Wrap,
   WrapInput,
@@ -22,6 +25,8 @@ function InputDate({ field, form, options, label, meta, ...props }) {
   const [changeValue, setChangeValue] = useState(formValue);
   const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef(null);
+
+  const lang = useSelector((state) => state.events.lang);
 
   const outsideClickHandler = () => {
     setIsOpen(false);
@@ -49,8 +54,16 @@ function InputDate({ field, form, options, label, meta, ...props }) {
       <WrapInput>
         <Input onClick={togglePopup}>
           <Text $select={value}>
-            {!isOpen && <>{value ? format(value, "dd.MM") : "Select"}</>}
-            {isOpen && `Select ${label}`}
+            {!isOpen && (
+              <>
+                {value ? (
+                  format(value, "dd.MM")
+                ) : (
+                  <>{lang.inputDateSelectText}</>
+                )}
+              </>
+            )}
+            {isOpen && `${lang.inputDateSelectText} ${label}`}
           </Text>
         </Input>
         {!isOpen ? (
@@ -73,7 +86,7 @@ function InputDate({ field, form, options, label, meta, ...props }) {
           />
           <BtnWrap>
             <BtnCancel onClick={togglePopup} type="button">
-              Cancel
+              {lang.inputDateCancelBtnText}
             </BtnCancel>
             <BtnChoose
               onClick={() => {
@@ -81,7 +94,7 @@ function InputDate({ field, form, options, label, meta, ...props }) {
               }}
               type="button"
             >
-              Choose date
+              {lang.inputChooseDateText}
             </BtnChoose>
           </BtnWrap>
         </Popup>

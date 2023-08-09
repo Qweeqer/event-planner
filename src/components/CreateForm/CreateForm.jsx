@@ -1,12 +1,14 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
 import EventForm from "../EventForm/EventForm";
-import { useDispatch } from "react-redux";
 import { addEvent } from "../../redux/events/eventsOperations";
 
 function CreateForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const lang = useSelector((state) => state.events.lang);
 
   const initialValues = {
     title: "",
@@ -29,7 +31,7 @@ function CreateForm() {
     <EventForm
       onSubmit={handleSubmit}
       initialValues={initialValues}
-      btnText="Add event"
+      btnText={lang.createFormBtnText}
     />
   );
 }

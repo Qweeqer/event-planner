@@ -1,9 +1,10 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { format } from "date-fns";
+
 import { removeEvent } from "../../redux/events/eventsOperations";
 import useClickOutside from "../../hooks/useClickOutside";
-import { format } from "date-fns";
 import {
   Box,
   Image,
@@ -35,6 +36,8 @@ function DetailsBox({
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const lang = useSelector((state) => state.events.lang);
+
   const path = `/events/${id}/edit`;
 
   const outsideClickHandler = () => {
@@ -65,21 +68,21 @@ function DetailsBox({
           <Label $priority={`${priority}`}>{priorityName}</Label>
           <Label>{location}</Label>
           <Label>
-            {formatedDate} at {time}
+            {formatedDate} {lang.atText} {time}
           </Label>
         </LabelsWrap>
         <BtnWrap>
           <EditBtn to={path} state={{ from: locationState }}>
-            Edit
+            {lang.editBtnText}
           </EditBtn>
           <DelBtn onClick={onTogglePopup} type="button">
-            Delete event
+            {lang.deleteBtnText}
           </DelBtn>
           {isVisiblePopup && (
             <Popup ref={popupRef}>
-              <p> Are you sure to delete this event?</p>
-              <DelBtn onClick={onClickDelete}>Yes</DelBtn>
-              <DelBtn onClick={onTogglePopup}>No</DelBtn>
+              <p> {lang.popUpDeleteText}</p>
+              <DelBtn onClick={onClickDelete}>{lang.popUpBtnYes}</DelBtn>
+              <DelBtn onClick={onTogglePopup}>{lang.popUpBtnNo}</DelBtn>
             </Popup>
           )}
         </BtnWrap>

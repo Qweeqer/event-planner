@@ -1,4 +1,6 @@
 import React, { useState, useRef, forwardRef } from "react";
+import { useSelector } from "react-redux";
+
 import { Wrapper, Label, Input, Button } from "../EventForm.styled";
 import FormError from "../FormError/FormError";
 import useResponsiveBreakpoints from "../../../hooks/useResponsiveBreakpoints";
@@ -7,6 +9,8 @@ const PictureSection = forwardRef((props, ref) => {
   const [selectedPicture, setSelectedPicture] = useState(null);
   const fileInputRef = useRef(null);
   const { isTabletMax } = useResponsiveBreakpoints();
+
+  const lang = useSelector((state) => state.events.lang);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -26,7 +30,7 @@ const PictureSection = forwardRef((props, ref) => {
 
   return (
     <Wrapper>
-      <Label htmlFor="picture">Add picture</Label>
+      <Label htmlFor="picture">{lang.eventFormPictureTitle}</Label>
       <Input type="text" id="address" name="address" />
       <input
         type="file"
@@ -51,7 +55,7 @@ const PictureSection = forwardRef((props, ref) => {
         style={selectButtonStyles}
         disabled // only if backend not suport add files
       >
-        Choose File
+        {lang.eventFormPictureBtnText}
       </Button>
     </Wrapper>
   );

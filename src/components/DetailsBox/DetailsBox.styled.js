@@ -83,7 +83,9 @@ export const BtnWrap = styled.div`
 `;
 
 export const EditBtn = styled(Link)`
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 8px 14px;
   width: 108px;
   border: ${(p) => p.theme.borders.thin} ${(p) => p.theme.colors.accent};
@@ -93,7 +95,7 @@ export const EditBtn = styled(Link)`
   font-size: ${(p) => p.theme.fontSizes.xxs};
   font-weight: ${(p) => p.theme.fontWeights.medium};
   line-height: ${(p) => p.theme.lineHeights.btn};
-
+  text-align: center;
   transition: border-color ${(p) => p.theme.animation.cubic},
     color ${(p) => p.theme.animation.cubic};
 

@@ -1,9 +1,11 @@
 import React, { useState, useRef, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import debounce from "lodash.debounce";
-import { Input, StyledIcon, InputWrap } from "./Search.styled";
-import { useDispatch } from "react-redux";
+
 import { setSearchValue } from "../../redux/search/searchSlice";
 import ClearButton from "../ClearButton/ClearButton";
+
+import { Input, StyledIcon, InputWrap } from "./Search.styled";
 
 const DEBOUNCE_DELAY = 150;
 
@@ -12,6 +14,7 @@ function Search() {
   const inputRef = useRef(null);
   const dispatch = useDispatch();
 
+  const lang = useSelector((state) => state.events.lang);
 const handleChange = useCallback(
   (value) => {
     const delayedFunction = debounce(() => {
@@ -43,7 +46,7 @@ const handleChange = useCallback(
         onChange={handleInputChange}
         value={search}
         name="search"
-        placeholder="Search by keywords"
+        placeholder={lang.searchPlaceholderText}
       />
       <StyledIcon color="#7B61FF" />
       {search && (

@@ -1,5 +1,6 @@
 import React from "react";
 import { ErrorMessage } from "formik";
+
 import { ErrorText } from "../EventForm.styled"; 
 
 const FormError = ({ name }) => {

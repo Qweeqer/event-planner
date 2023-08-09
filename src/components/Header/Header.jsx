@@ -1,8 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
 import useResponsiveBreakpoints from "../../hooks/useResponsiveBreakpoints";
 import Search from "../Search/Search";
-import Container from "../Container/Container.styled";
 import Language from "../Language/Language";
+
+import Container from "../Container/Container.styled";
+
 import {
   HeaderWrap,
   Logo,
@@ -13,14 +17,17 @@ import {
 
 function Header() {
   const { isTablet, isMobile } = useResponsiveBreakpoints();
+  
+  const lang = useSelector((state) => state.events.lang);
+
   return (
     <HeaderWrap>
       <Container>
         {isMobile && (
           <>
             <LogoWrap>
-              <Logo to="/">Event Planner</Logo>
-              <div>EN</div>
+              <Logo to="/">{lang.eventPlannerLogoText}</Logo>
+              <Language />
             </LogoWrap>
 
             <Search />
@@ -28,7 +35,7 @@ function Header() {
         )}
         {isTablet && (
           <HeaderWrapper>
-            <Logo to={"/"}>Event Planner</Logo>
+            <Logo to={"/"}>{lang.eventPlannerLogoText}</Logo>
             <HeaderTabWrapper>
               <Search />
               <Language />

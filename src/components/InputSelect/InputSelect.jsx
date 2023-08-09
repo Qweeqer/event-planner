@@ -1,5 +1,8 @@
 import React, { useState, useRef } from "react";
+import { useSelector } from "react-redux";
+
 import useOutsideClick from "../../hooks/useClickOutside";
+
 import {
   Select,
   Input,
@@ -12,12 +15,20 @@ import {
 } from "./InputSelect.styled";
 
 function InputSelect({ field, form, options, label, meta, ...props }) {
-  const formValue = field.value
-    ? options.find((item) => item.value === field.value).valueName
-    : "";
+
+const selectedOption = field.value
+  ? options.find((item) => item.value === field.value)
+  : null;
+  const lang = useSelector((state) => state.events.lang);
+const formValue = selectedOption
+  ? lang[`category${selectedOption.valueName}`] ||
+    lang[`priority${selectedOption.valueName}`]
+  : "";
+
   const [selectValue, setSelectValue] = useState(formValue);
   const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef(null);
+
 
   const outsideClickHandler = () => {
     setIsOpen(false);
@@ -29,19 +40,24 @@ function InputSelect({ field, form, options, label, meta, ...props }) {
     setIsOpen((prev) => !prev);
   };
 
-  const onSelect = (obj) => {
-    setSelectValue(obj.valueName);
-    togglePopup();
-    form.setFieldValue(field.name, obj.value);
-  };
+const onSelect = (obj) => {
+  const translatedValue =
+    lang[`category${obj.valueName}`] || lang[`priority${obj.valueName}`];
+  setSelectValue(translatedValue);
+  togglePopup();
+  form.setFieldValue(field.name, obj.value);
+};
 
+  
   return (
     <Select ref={inputRef}>
       <SelectHeader>
         <Input onClick={togglePopup}>
           <Text $select={selectValue}>
-            {!isOpen && <>{selectValue ? selectValue : "Select"}</>}
-            {isOpen && `Select ${label}`}
+            {!isOpen && (
+              <>{selectValue ? selectValue : <>{lang.inputDateSelectText}</>}</>
+            )}
+            {isOpen && `${lang.inputDateSelectText}`}
           </Text>
         </Input>
         {!isOpen ? (
@@ -61,7 +77,8 @@ function InputSelect({ field, form, options, label, meta, ...props }) {
                 }}
                 key={index}
               >
-                {item.valueName}
+                {lang[`category${item.valueName}`] ||
+                  lang[`priority${item.valueName}`]}
               </SelectItem>
             );
           })}

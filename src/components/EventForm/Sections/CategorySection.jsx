@@ -1,5 +1,7 @@
 import React from "react";
 import { Field } from "formik";
+import { useSelector } from "react-redux";
+
 import InputSelect from "../../InputSelect/InputSelect";
 import { Wrapper, Label } from "../EventForm.styled";
 import { categories } from "../../../helpers/variables";
@@ -7,9 +9,11 @@ import { categories } from "../../../helpers/variables";
 import FormError from "../FormError/FormError";
 
 const CategorySection = () => {
+  
+  const lang = useSelector((state) => state.events.lang);
   return (
     <Wrapper>
-      <Label htmlFor="category">Category</Label>
+      <Label htmlFor="category">{lang.eventFormCategoryTitle}</Label>
       <Field name="category">
         {({ field, form, meta }) => (
           <InputSelect

@@ -1,12 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
 import { Wrapper, Label, Input } from "../EventForm.styled";
 import FormError from "../FormError/FormError";
 
 function TitleSection() {
+  
+  const lang = useSelector((state) => state.events.lang);
+
   return (
     <Wrapper>
-      <Label htmlFor="title">Title</Label>
-      <Input placeholder="Input" name="title" />
+      <Label htmlFor="title">{lang.eventFormTitleFields}</Label>
+      <Input placeholder={lang.eventFormTitleFields} name="title" />
       <FormError name="title" />
     </Wrapper>
   );

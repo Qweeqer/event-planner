@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useSelector } from "react-redux";
 import useResponsiveBreakpoints from "../../hooks/useResponsiveBreakpoints";
 import useOutsideClick from "../../hooks/useClickOutside";
 import { useDispatch } from "react-redux";
@@ -13,6 +14,11 @@ function Filter() {
   const [filter, setFilter] = useState("");
   const filterRef = useRef(null);
   const { isMobile, isTablet } = useResponsiveBreakpoints();
+
+  const lang = useSelector((state) => state.events.lang);
+const translatedFilter = filter
+  ? lang[`category${filter}`]
+  : lang.filterCategoryTitle;
 
   const outsideClickHandler = () => {
     setIsOpen(false);
@@ -38,7 +44,7 @@ function Filter() {
       <WrapIcon>
         {isMobile && (
           <>
-            {isOpen && <>{filter ? filter : "Category"}</>}
+            {isOpen && <>{translatedFilter}</>}
             {filter || isOpen ? (
               <Filters3 color="#7B61FF" />
             ) : (
@@ -48,7 +54,7 @@ function Filter() {
         )}
         {isTablet && (
           <>
-            {filter ? filter : "Category"}
+            <>{translatedFilter}</>
             {isOpen || filter ? (
               <Filters3 color="#7B61FF" />
             ) : (

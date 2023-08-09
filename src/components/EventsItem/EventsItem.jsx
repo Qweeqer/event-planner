@@ -1,5 +1,7 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { format } from "date-fns";
+
 import {
   Card,
   ImgWrap,
@@ -29,17 +31,21 @@ function EventsListItem({
   const formattedDate = format(new Date(date), "dd.MM");
   const formattedTime = time;
   const imgWrapStyle = picture ? { backgroundImage: `url(${picture})` } : {};
+  const lang = useSelector((state) => state.events.lang);
 
   return (
     <Card>
       <ImgWrap style={imgWrapStyle}>
         <Labels>
-          <Category>{category}</Category>
-          <Priority $priority={`${priority}`}>{priorityName}</Priority>
+          <Category>{lang[`category${category}`]}</Category>
+
+          <Priority $priority={`${priority}`}>
+            {lang[`priority${priorityName}`]}
+          </Priority>
         </Labels>
         <DateText>
           <div>
-            {formattedDate} at {formattedTime}
+            {formattedDate} {lang.atText} {formattedTime}
           </div>
           <p>{location}</p>
         </DateText>
@@ -48,7 +54,7 @@ function EventsListItem({
         <Title>{title}</Title>
         <Text>{description}</Text>
         <ItemLink to={path} state={{ from: locationState }}>
-          More info
+          {lang.eventsItemBtnText}
         </ItemLink>
       </Descr>
     </Card>

@@ -1,12 +1,14 @@
 import React, { useState, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Filters2, ArrowSmallUp, ArrowSmallDown } from "react-swm-icon-pack";
+
+import { setSortValue } from "../../redux/sort/sortSlice";
+import { selectSortProperty } from "../../redux/sort/sortSelectors";
 import useResponsiveBreakpoints from "../../hooks/useResponsiveBreakpoints";
 import useOutsideClick from "../../hooks/useClickOutside";
-import { Wrap, Item, WrapIcon, List } from "./Sort.styled";
-import { Filters2, ArrowSmallUp, ArrowSmallDown } from "react-swm-icon-pack";
-import { useDispatch, useSelector } from "react-redux";
-import { setSortValue } from "../../redux/sort/sortSlice";
 import { sortValues } from "../../helpers/variables";
-import { selectSortProperty } from "../../redux/sort/sortSelectors";
+
+import { Wrap, Item, WrapIcon, List } from "./Sort.styled";
 
 function Sort() {
   const dispatch = useDispatch();
@@ -17,6 +19,7 @@ function Sort() {
   const sortRef = useRef(null);
   const { isMobile, isTablet } = useResponsiveBreakpoints();
 
+  const lang = useSelector((state) => state.events.lang);
   const outsideClickHandler = () => {
     setIsOpen(false);
   };
@@ -40,7 +43,7 @@ function Sort() {
     >
       {isMobile && (
         <WrapIcon>
-          {isOpen && <p>Sort by</p>}
+          {isOpen && <p>{lang.sortTagText}</p>}
           {isOpen || isSortVal ? (
             <Filters2 color="#7B61FF" />
           ) : (
@@ -51,8 +54,20 @@ function Sort() {
       {isTablet && (
         <WrapIcon>
           <div>
-            <span>Sort by </span>
-            {!isOpen && <span>{sort?.name}</span>}
+            <span>{lang.sortTagText} </span>
+            {!isOpen && (
+              <span>
+                {
+                  lang[
+                    `sort${
+                      sort?.name.charAt(0).toUpperCase() + sort?.name.slice(1)
+                    }${
+                      sort?.order.charAt(0).toUpperCase() + sort?.order.slice(1)
+                    }`
+                  ]
+                }
+              </span>
+            )}
           </div>
           {!isOpen && (
             <>
@@ -72,6 +87,10 @@ function Sort() {
           {sortValues.map((item, index) => {
             const select =
               sort?.property === item.property && sort?.order === item.order;
+            const keyName = `sort${
+              item.name.charAt(0).toUpperCase() + item.name.slice(1)
+            }${item.order.charAt(0).toUpperCase() + item.order.slice(1)}`;
+
             return (
               <Item
                 $select={select}
@@ -80,7 +99,8 @@ function Sort() {
                 }}
                 key={index}
               >
-                <p>by {item.name}</p>
+                <p>{lang[keyName]}</p>
+
                 {item.order === "asc" ? (
                   select ? (
                     <ArrowSmallUp color="#7B61FF" />

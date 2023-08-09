@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
-import { useLocation, useParams } from "react-router-dom";
 import axios from "axios";
+import React, { useState, useEffect, useCallback } from "react";
+import { useSelector } from "react-redux";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
+
 import EventForm from "../EventForm/EventForm";
 
 function EditForm() {
@@ -10,6 +11,8 @@ function EditForm() {
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
   const { eventId } = useParams();
+
+  const lang = useSelector((state) => state.events.lang);
 
   const fetchEvent = useCallback(
     async (id) => {
@@ -47,7 +50,7 @@ function EditForm() {
       onSubmit={onSubmit}
       isLoading={isLoading}
       initialValues={eventDetails}
-      btnText="Save"
+      btnText={lang.eventFormSaveBtnText}
     />
   );
 }

@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useSelector } from "react-redux";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+
+import { priorities } from "../../helpers/variables";
 import BackButton from "../../components/BackButton/BackButton";
 import DetailsBox from "../../components/DetailsBox/DetailsBox";
 import Loader from "../../components/Loader/Loader";
+
 import { TitleDetails, Wrap } from "./DetailsPage.styled.js";
-import { priorities } from "../../helpers/variables";
 
 function DetailsPage() {
   const navigate = useNavigate();
@@ -13,6 +16,9 @@ function DetailsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const locationState = useLocation();
   const { eventId } = useParams();
+  const lang = useSelector((state) => state.events.lang);
+  
+
 
   const fetchEvent = useCallback(
     async (id) => {
@@ -44,7 +50,8 @@ function DetailsPage() {
   } = eventDetails;
   const priorityItem = priorities.find((item) => item.value === priority) ?? {};
   const valueName = priorityItem.valueName;
-
+  const translatedPriority = lang[`priority${valueName}`];
+  const translatedCategory = lang[`category${category}`];
   return (
     <div>
       <BackButton />
@@ -59,9 +66,9 @@ function DetailsPage() {
             time={time}
             location={location}
             description={description}
-            category={category}
+            category={translatedCategory}
             priority={priority}
-            priorityName={valueName}
+            priorityName={translatedPriority}
             picture={picture}
             locationState={locationState}
           />

@@ -1,6 +1,7 @@
 import React from "react";
-import { Button } from "./ClearButton.styled";
 import { CrossSmall } from "react-swm-icon-pack";
+
+import { Button } from "./ClearButton.styled";
 
 function ClearButton({ onClick }) {
   return (
