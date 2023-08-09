@@ -1,16 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 import { fetchEvents, addEvent, removeEvent } from "./eventsOperations";
+
+import { ua, en } from "../../localization";
 
 const initialState = {
   items: [],
   isLoading: false,
   error: null,
+  lang: en,
 };
 
 const eventsSlice = createSlice({
   name: "events",
   initialState,
-  reducers: {},
+  reducers: {
+    languageSelection: (state, action) => {
+      switch (action.payload) {
+        case "ua":
+          state.lang = ua;
+          break;
+        case "en":
+          state.lang = en;
+          break;
+        default:
+          state.lang = en;
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchEvents.pending, (state) => {
@@ -18,7 +35,7 @@ const eventsSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchEvents.fulfilled, (state, action) => {
-        state.items = action.payload; 
+        state.items = action.payload;
         state.isLoading = false;
         state.error = null;
       })
@@ -31,7 +48,7 @@ const eventsSlice = createSlice({
         state.error = null;
       })
       .addCase(addEvent.fulfilled, (state, action) => {
-        state.items.push(action.payload); 
+        state.items.push(action.payload);
         state.isLoading = false;
         state.error = null;
       })
@@ -57,4 +74,5 @@ const eventsSlice = createSlice({
   },
 });
 
+export const { languageSelection } = eventsSlice.actions;
 export const eventsReducer = eventsSlice.reducer;
