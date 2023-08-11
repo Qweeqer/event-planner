@@ -6,8 +6,7 @@ import InputDate from "../../InputDate/InputDate";
 import { Wrapper, Label } from "../EventForm.styled";
 import FormError from "../FormError/FormError";
 
-function DateSection() {
-  
+const DateSection = () => {
   const lang = useSelector((state) => state.events.lang);
   return (
     <Wrapper>
@@ -20,6 +19,6 @@ function DateSection() {
       <FormError name="date" />
     </Wrapper>
   );
-}
+};
 
 export default DateSection;

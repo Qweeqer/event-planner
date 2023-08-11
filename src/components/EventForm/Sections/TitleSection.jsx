@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Wrapper, Label, Input } from "../EventForm.styled";
 import FormError from "../FormError/FormError";
 
-function TitleSection() {
+const TitleSection = () => {
   
   const lang = useSelector((state) => state.events.lang);
 

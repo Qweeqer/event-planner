@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { Wrapper, Label, Textarea } from "../EventForm.styled";
 import FormError from "../FormError/FormError";
+import { Wrapper, Label, Textarea } from "../EventForm.styled";
 
-function DescriptionSection() {
+const DescriptionSection = () => {
   const lang = useSelector((state) => state.events.lang);
   return (
     <Wrapper>
