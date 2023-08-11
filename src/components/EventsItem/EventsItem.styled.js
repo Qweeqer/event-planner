@@ -65,8 +65,13 @@ export const Title = styled.h3`
 export const Text = styled.p`
   font-size: ${(p) => p.theme.fontSizes.xs};
   line-height: ${(p) => p.theme.lineHeights.text};
-  overflow: hidden; 
-  text-overflow: ellipsis; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  max-height: 60px; 
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
 `;
 export const Labels = styled.div`
   position: absolute;
