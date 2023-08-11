@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
+import Notiflix from "notiflix";
 
 import { updateEvent } from "../../redux/events/eventsOperations";
 import EventForm from "../EventForm/EventForm";
@@ -38,9 +39,11 @@ function EditForm() {
   const onSubmit = async (values, { resetForm }) => {
     const event = { ...values, id: eventDetails.id };
     try {
-      await dispatch(updateEvent(event)); 
+      await dispatch(updateEvent(event));
+      Notiflix.Notify.success(lang.editFormSuccessText);
       resetForm();
     } catch (error) {
+      Notiflix.Notify.failure(lang.editFormErrorText);
       navigate(location?.state?.from ?? "/");
     }
 

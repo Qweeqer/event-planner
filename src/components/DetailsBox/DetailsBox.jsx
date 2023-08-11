@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { format } from "date-fns";
+import Notiflix from "notiflix";
 
 import { removeEvent } from "../../redux/events/eventsOperations";
 import useClickOutside from "../../hooks/useClickOutside";
@@ -52,6 +53,7 @@ function DetailsBox({
 
   const onClickDelete = () => {
     dispatch(removeEvent(id));
+    Notiflix.Notify.success(lang.deleteSuccessText);
     navigate("/");
   };
 
