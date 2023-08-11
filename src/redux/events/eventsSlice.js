@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { fetchEvents, addEvent, removeEvent } from "./eventsOperations";
+import {
+  fetchEvents,
+  addEvent,
+  removeEvent,
+  updateEvent,
+} from "./eventsOperations";
 
 import { ua, en } from "../../localization";
 
@@ -68,6 +73,24 @@ const eventsSlice = createSlice({
         state.error = null;
       })
       .addCase(removeEvent.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(updateEvent.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(updateEvent.fulfilled, (state, action) => {
+        const index = state.items.findIndex(
+          (item) => item.id === action.payload.id
+        );
+        if (index !== -1) {
+          state.items[index] = action.payload;
+        }
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(updateEvent.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

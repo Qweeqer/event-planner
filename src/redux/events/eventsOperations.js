@@ -1,11 +1,8 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-
-
-axios.defaults.baseURL = "https://64d141bdff953154bb7a31af.mockapi.io/api/events/";
-  
-
+axios.defaults.baseURL =
+  "https://64d141bdff953154bb7a31af.mockapi.io/api/events/";
 
 export const fetchEvents = createAsyncThunk(
   "events/fetchItems",
@@ -39,6 +36,17 @@ export const removeEvent = createAsyncThunk(
       return data;
     } catch (e) {
       return rejectWithValue("Something went wrong, please try again later!");
+    }
+  }
+);
+export const updateEvent = createAsyncThunk(
+  "events/updateEvent",
+  async (event, { rejectWithValue }) => {
+    try {
+      const response = await axios.put(`/${event.id}`, event);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
   }
 );

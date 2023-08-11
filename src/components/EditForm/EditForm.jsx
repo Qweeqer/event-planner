@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect, useCallback } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 
+import { updateEvent } from "../../redux/events/eventsOperations";
 import EventForm from "../EventForm/EventForm";
 
 function EditForm() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [eventDetails, setEventDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -36,7 +38,7 @@ function EditForm() {
   const onSubmit = async (values, { resetForm }) => {
     const event = { ...values, id: eventDetails.id };
     try {
-      await axios.put(`/${event.id}`, event);
+      await dispatch(updateEvent(event)); 
       resetForm();
     } catch (error) {
       navigate(location?.state?.from ?? "/");
