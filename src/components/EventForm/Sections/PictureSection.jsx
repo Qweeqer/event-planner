@@ -6,52 +6,24 @@ import FormError from "../FormError/FormError";
 import useResponsiveBreakpoints from "../../../hooks/useResponsiveBreakpoints";
 
 const PictureSection = forwardRef((props, ref) => {
-  const [selectedPicture, setSelectedPicture] = useState(null);
-  const fileInputRef = useRef(null);
   const { isTabletMax } = useResponsiveBreakpoints();
 
   const lang = useSelector((state) => state.events.lang);
-
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    setSelectedPicture(file);
-  };
 
   const selectButtonStyles = {
     position: isTabletMax ? "relative" : "static",
     marginTop: isTabletMax ? "15%" : "8%",
     marginLeft: isTabletMax ? "8%" : 0,
-    backgroundColor: "grey",// only if backend not suport add files
-  };
-
-  const handleSelectButtonClick = () => {
-    fileInputRef.current.click();
+    backgroundColor: "grey", // only if backend not suport add files
   };
 
   return (
     <Wrapper>
       <Label htmlFor="picture">{lang.eventFormPictureTitle}</Label>
-      <Input type="text" id="address" name="address" />
-      <input
-        type="file"
-        id="picture"
-        name="picture"
-        accept="image/*"
-        ref={fileInputRef}
-        onChange={handleFileChange}
-        style={{ display: "none" }}
-      />
-      {selectedPicture && (
-        <img
-          src={URL.createObjectURL(selectedPicture)}
-          alt="Selected"
-          style={{ maxWidth: "100%", marginTop: "10px" }}
-        />
-      )}
+      <Input placeholder="Input" name="picture" />
       <FormError name="picture" />
       <Button
         type="button"
-        onClick={handleSelectButtonClick}
         style={selectButtonStyles}
         disabled // only if backend not suport add files
       >
