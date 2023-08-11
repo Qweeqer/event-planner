@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Field } from "formik";
 import { device } from "../../utils/device";
-import { ChevronSmallDown } from "react-swm-icon-pack";
 
 export const StyledForm = styled.div`
   position: relative;
@@ -66,19 +65,6 @@ export const Textarea = styled(Input)`
   min-height: 156px;
 `;
 
-export const Select = styled(Input)`
-  /* position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    display: block;
-    height: 24px;
-    width: 24px;
-    color: red;
-    /* background-image: url(${ChevronSmallDown}); 
-  } */
-`;
 
 export const ErrorText = styled.p`
   position: absolute;
