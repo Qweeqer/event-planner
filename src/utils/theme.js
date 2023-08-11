@@ -3,6 +3,7 @@ export const theme = {
     white: "#ffffff",
     accent: "#7B61FF",
     hover: "#6243FF",
+    focus: "#6243FF",
     primaryBackground: "#FEFCFF",
 
     popupBorder: "#aca7c3",

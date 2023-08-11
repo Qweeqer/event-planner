@@ -84,7 +84,8 @@ export const BtnCancel = styled.button`
   transition: border-color ${(p) => p.theme.animation.cubic},
     color ${(p) => p.theme.animation.cubic};
 
-  &:hover {
+  &:hover,
+  &:focus {
     border-color: ${(p) => p.theme.colors.hover};
     color: ${(p) => p.theme.colors.hover};
   }
@@ -103,7 +104,8 @@ export const BtnChoose = styled.button`
   font-family: inherit;
   transition: background-color ${(p) => p.theme.animation.cubic};
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: ${(p) => p.theme.colors.hover};
   }
 `;

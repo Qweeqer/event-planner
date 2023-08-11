@@ -99,7 +99,8 @@ export const EditBtn = styled(Link)`
   transition: border-color ${(p) => p.theme.animation.cubic},
     color ${(p) => p.theme.animation.cubic};
 
-  &:hover {
+  &:hover,
+  &:focus {
     border-color: ${(p) => p.theme.colors.hover};
     color: ${(p) => p.theme.colors.hover};
   }
@@ -121,7 +122,8 @@ export const DelBtn = styled.button`
   font-family: inherit;
   transition: background-color ${(p) => p.theme.animation.cubic};
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: ${(p) => p.theme.colors.hover};
   }
 `;

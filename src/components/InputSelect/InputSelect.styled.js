@@ -71,7 +71,8 @@ export const SelectItem = styled.div`
       `${p.theme.borders.thin} ${p.theme.colors.form.border}`};
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     cursor: pointer;
   }
 `;

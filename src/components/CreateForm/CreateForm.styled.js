@@ -93,7 +93,8 @@ export const Btn = styled.button`
   line-height: ${(p) => p.theme.lineHeights.title};
   transition: background-color ${(p) => p.theme.animation.cubic};
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: ${(p) => p.theme.colors.hover};
   }
 

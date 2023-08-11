@@ -25,7 +25,8 @@ export const Logo = styled(Link)`
 
   transition: color ${(p) => p.theme.animation.cubic};
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: ${(p) => p.theme.colors.hover};
   }
 `;
