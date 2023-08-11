@@ -19,7 +19,7 @@ export const StyledMain = styled.main`
   background-repeat: no-repeat;
   min-height: 100%;
   padding: 40px 0 100px;
-  animation: ${waveAnimation} 3s linear 6 alternate;
+  animation: ${waveAnimation} 3s linear 3 alternate;
 
   @media ${device.desktop} {
     padding: 60px 0;
