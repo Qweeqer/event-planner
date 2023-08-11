@@ -1,4 +1,4 @@
-import React, { useState, useRef, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import { useSelector } from "react-redux";
 
 import { Wrapper, Label, Input, Button } from "../EventForm.styled";
