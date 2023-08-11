@@ -8,7 +8,7 @@ import {
   Card,
   ImgWrap,
   DateText,
-  Descr,
+  Description,
   Title,
   Text,
   Labels,
@@ -55,13 +55,13 @@ function EventsListItem({
           <p>{location}</p>
         </DateText>
       </ImgWrap>
-      <Descr>
+      <Description>
         <Title>{title}</Title>
         <Text>{description}</Text>
         <ItemLink to={path} state={{ from: locationState }}>
           {lang.eventsItemBtnText}
         </ItemLink>
-      </Descr>
+      </Description>
     </Card>
   );
 }

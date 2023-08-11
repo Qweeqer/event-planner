@@ -8,7 +8,7 @@ export const validationSchema = Yup.object({
     .required(),
   description: Yup.string()
     .trim()
-    .max(120)
+    .max(520)
     .matches(/^(?!.*([A-Z])\1{3,})[A-Za-z\s\-,.!?@#$%^&*()]+$/, "Invalid input")
     .required(),
   date: Yup.date().min(new Date()).required(),

@@ -25,6 +25,7 @@ export const ImgWrap = styled.div`
   ${Card}:hover &, ${Card}:focus & {
     height: 300px;
   }
+  }
 `;
 
 export const DateText = styled.div`
@@ -40,11 +41,12 @@ export const DateText = styled.div`
   bottom: 0;
 `;
 
-export const Descr = styled.div`
+export const Description = styled.div`
   padding: 16px;
   padding-bottom: 24px;
   text-align: left;
-
+  overflow: hidden; 
+  max-height: 100px; 
   transition: padding-bottom ${(p) => p.theme.animation.cubic};
 
   ${Card}:hover &, ${Card}:focus & {
@@ -63,6 +65,8 @@ export const Title = styled.h3`
 export const Text = styled.p`
   font-size: ${(p) => p.theme.fontSizes.xs};
   line-height: ${(p) => p.theme.lineHeights.text};
+  overflow: hidden; 
+  text-overflow: ellipsis; 
 `;
 export const Labels = styled.div`
   position: absolute;
@@ -116,7 +120,8 @@ export const ItemLink = styled(Link)`
   opacity: 0;
   transform: scale(0);
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: ${(p) => p.theme.colors.hover};
   }
 
