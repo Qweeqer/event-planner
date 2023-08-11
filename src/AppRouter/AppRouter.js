@@ -1,13 +1,13 @@
-import React, { Suspense } from "react";
+import React, { Suspense, lazy } from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import Layout from "../components/Layout/Layout";
 import Loader from "../components/Loader/Loader";
 
-import HomePage from "../pages/HomePage/HomePage";
-import CreatePage from "../pages/CreatePage/CreatePage";
-import DetailsPage from "../pages/DetailsPage/DetailsPage";
-import EditPage from "../pages/EditPage/EditPage";
+const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
+const CreatePage = lazy(() => import("../pages/CreatePage/CreatePage"));
+const DetailsPage = lazy(() => import("../pages/DetailsPage/DetailsPage"));
+const EditPage = lazy(() => import("../pages/EditPage/EditPage"));
 
 export const AppRouter = () => {
   return createBrowserRouter(
