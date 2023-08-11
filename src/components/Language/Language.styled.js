@@ -16,4 +16,5 @@ export const Wrap = styled.select`
   justify-content: center;
   align-items: center;
   gap: 4px;
+  cursor: pointer;
 `;
