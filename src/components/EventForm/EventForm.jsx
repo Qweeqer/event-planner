@@ -3,7 +3,6 @@ import { Formik, Form } from "formik";
 import useResponsiveBreakpoints from "../../hooks/useResponsiveBreakpoints";
 
 import { validationSchema } from "../../helpers/schemas";
-import { StyledForm, Button } from "./EventForm.styled";
 import TimeSection from "./Sections/TimeSection";
 import LocationSection from "./Sections/LocationSection";
 import CategorySection from "./Sections/CategorySection";
@@ -12,6 +11,8 @@ import PrioritySection from "./Sections/PrioritySection";
 import TitleSection from "./Sections/TitleSection";
 import DescriptionSection from "./Sections/DescriptionSection";
 import DateSection from "./Sections/DateSection";
+
+import { StyledForm, Button } from "./EventForm.styled";
 
 function EventForm({ onSubmit, initialValues, isLoading = false, btnText }) {
   const { isTabletMax, isMobile, isDesktop } = useResponsiveBreakpoints();

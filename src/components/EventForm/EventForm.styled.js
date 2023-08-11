@@ -54,7 +54,7 @@ export const Input = styled(Field)`
   }
 
   &::placeholder {
-    color: ${(p) => p.theme.colors.form.input};
+    color: "grey";
     font-family: inherit;
     line-height: ${(p) => p.theme.lineHeights.formInput};
     font-size: ${(p) => p.theme.fontSizes.s};
